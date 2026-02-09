@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>БАУРЖАН — Кыргызстандагы ноутбук дүкөнү | Бардык ноутбуктар бир жерде</title>
+    <meta name="description" content="Кыргызстандын эң ири ноутбук дүкөнү. Жаңы жана колдонулган ноутбуктар, акысыз кеңеш, жеткирүү">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #dc2626;
+            --primary-dark: #b91c1c;
+            --secondary: #2563eb;
+            --accent: #fbbf24;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --shadow: 0 10px 25px -5px rgba(220, 38, 38, 0.2);
+            --radius: 12px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* HEADER - БАУРЖАН СТИЛИ */
+        .header {
+            background: white;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 4px solid var(--primary);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+        
+        .logo-badge {
+            background: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 24px;
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 28px;
+            color: var(--dark);
+            letter-spacing: -0.5px;
+        }
+        
+        .logo-title span {
+            color: var(--primary);
+            text-shadow: 2px 2px 4px rgba(220, 38, 38, 0.1);
+        }
+        
+        .logo-subtitle {
+            font-size: 12px;
+            color: var(--gray);
+            letter-spacing: 2px;
+            margin-top: -3px;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 35px;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 15px;
+            padding: 8px 0;
+            position: relative;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .user-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .btn {
+            padding: 10px 24px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(220, 38, 38, 0.4);
+        }
+        
+        .icon-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            text-decoration: none;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .icon-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--accent);
+            color: var(--dark);
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            font-size: 12px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* HERO SECTION */
+        .hero {
+            padding: 100px 0 80px;
+            background: linear-gradient(135deg, #fef2f2 0%, #fef2f2 50%, #ffffff 50%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23dc2626' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.6;
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-text {
+            flex: 1;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(251, 191, 36, 0.3);
+        }
+        
+        .hero-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 52px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .hero-title span {
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .hero-title span::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: rgba(251, 191, 36, 0.4);
+            z-index: -1;
+        }
+        
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--gray);
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+        
+        .hero-features {
+            display: flex;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .feature-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--primary);
+            color: white;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+        
+        .hero-image {
+            flex: 1;
+            position: relative;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transform: perspective(1000px) rotateY(-10deg);
+            transition: transform 0.5s;
+        }
+        
+        .hero-image:hover img {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+        
+        /* CATEGORIES */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .section-subtitle {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .category-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            text-decoration: none;
+            color: var(--dark);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary);
+        }
+        
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--primary);
+        }
+        
+        .category-icon {
+            font-size: 48px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            height: 60px;
+        }
+        
+        .category-card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .category-card p {
+            color: var(--gray);
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .category-count {
+            display: inline-block;
+            background: #f1f5f9;
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 13px;
+        }
+        
+        /* PRODUCTS */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--primary);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 700;
+            z-index: 1;
+        }
+        
+        .product-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-content {
+            padding: 20px;
+        }
+        
+        .product-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            height: 44px;
+            overflow: hidden;
+        }
+        
+        .product-specs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .spec {
+            background: #f1f5f9;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--gray);
+        }
+        
+        .product-price {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .price-current {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+        
+        .price-old {
+            font-size: 16px;
+            color: var(--gray);
+            text-decoration: line-through;
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            flex: 1;
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* FILTERS */
+        .filters {
+            background: white;
+            padding: 25px;
+            border-radius: var(--radius);
+            margin-bottom: 40px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+        }
+        
+        .filter-group {
+            margin-bottom: 25px;
+        }
+        
+        .filter-title {
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--dark);
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .filter-btn {
+            padding: 8px 16px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .filter-btn:hover {
+            background: #e2e8f0;
+            border-color: var(--gray);
+        }
+        
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        /* COMPARISON */
+        .comparison {
+            background: linear-gradient(135deg, var(--dark) 0%, #0f172a 100%);
+            color: white;
+            padding: 80px 0;
+            border-radius: var(--radius);
+            margin: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .comparison::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .comparison-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .comparison h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+        
+        /* TESTIMONIALS */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 60px;
+            color: var(--primary);
+            opacity: 0.2;
+            line-height: 1;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        
+        /* FOOTER */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 0 30px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-brand {
+            max-width: 300px;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            text-decoration: none;
+        }
+        
+        .footer-logo-badge {
+            background: var(--primary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 20px;
+        }
+        
+        .footer-logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 24px;
+            color: white;
+        }
+        
+        .footer-logo-text span {
+            color: var(--primary);
+        }
+        
+        .footer-description {
+            color: #cbd5e1;
+            margin-bottom: 25px;
+            font-size: 15px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .footer-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 25px;
+            color: white;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 15px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            color: #cbd5e1;
+        }
+        
+        .contact-info i {
+            color: var(--primary);
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+            font-size: 14px;
+        }
+        
+        /* UTILITY */
+        .text-center {
+            text-align: center;
+        }
+        
+        .mb-20 {
+            margin-bottom: 20px;
+        }
+        
+        .mt-40 {
+            margin-top: 40px;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 40px;
+            }
+            
+            .hero-features {
+                justify-content: center;
+            }
+            
+            .header-container {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            
+            .nav {
+                order: 3;
+                width: 100%;
+                justify-content: center;
+                margin-top: 15px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .user-actions {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="/" class="logo">
+                <div class="logo-badge">Б</div>
+                <div class="logo-text">
+                    <div class="logo-title">БАУРЖАН <span>НОУТБУКТАР</span></div>
+                    <div class="logo-subtitle">КЫРГЫЗСТАНДЫН ЭҢ ИРИ ДҮКӨНҮ</div>
+                </div>
+            </a>
+            
+            <nav class="nav">
+                <a href="#catalog" class="nav-link">КАТАЛОГ</a>
+                <a href="#categories" class="nav-link">КАТЕГОРИЯЛАР</a>
+                <a href="#testimonials" class="nav-link">СЫН-ПИКИРЛЕР</a>
+                <a href="#about" class="nav-link">БИЗ ЖӨНҮНДӨ</a>
+            </nav>
+            
+            <div class="user-actions">
+                <button class="btn btn-primary">
+                    <i class="fas fa-search"></i> ИЗДӨӨ
+                </button>
+                <a href="#compare" class="icon-btn">
+                    <i class="fas fa-balance-scale"></i>
+                </a>
+                <a href="#favorites" class="icon-btn">
+                    <i class="fas fa-heart"></i>
+                </a>
+                <a href="#cart" class="icon-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">3</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-badge">ЖАНЫНАН КЕЛДИ!</div>
+                    <h1 class="hero-title">
+                        КЫРГЫЗСТАНДА <span>НОУТБУК</span><br>
+                        САТЫП АЛУУНУН ЭҢ ОҢОЙ ЖОЛУ
+                    </h1>
+                    <p class="hero-subtitle">
+                        Бизде 1000дөн ашык ноутбук моделдери, 1 жыл кепилдик, 
+                        Бишкекке акысыз жеткирүү жана техникалык колдоо бар.
+                    </p>
+                    
+                    <div class="hero-features">
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-shipping-fast"></i>
+                            </div>
+                            <span>Акысыз жеткирүү</span>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <span>1 жыл кепилдик</span>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <span>24/7 колдоо</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="БАУРЖАН ноутбуктары">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATEGORIES -->
+    <section class="section" id="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">СИЗГЕ КАЙСЫ КАТЕГОРИЯ КЕРЕК?</h2>
+                <p class="section-subtitle">Машыгуу, иш, оюн же окуу - баарына ылайыктуу ноутбук табабыз</p>
+            </div>
+            
+            <div class="categories-grid">
+                <a href="#" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>ОЮН НОУТБУКТАРЫ</h3>
+                    <p>RTX видеокарталар, жогорку FPS, RGB жарык</p>
+                    <div class="category-count">320 моделдер</div>
+                </a>
+                
+                <a href="#" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>ИШКЕРДИК КЛАСС</h3>
+                    <p>Узун батарея, жеңил, профессионалдык дизайн</p>
+                    <div class="category-count">180 моделдер</div>
+                </a>
+                
+                <a href="#" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>СТУДЕНТТЕР ҮЧҮН</h3>
+                    <p>Арзан баада жакшы өндүрүмдүүлүк, жеңил</p>
+                    <div class="category-count">450 моделдер</div>
+                </a>
+                
+                <a href="#" class="category-card">
+                    <div class="category-icon">
+                        <i class="fab fa-apple"></i>
+                    </div>
+                    <h3>MACBOOK</h3>
+                    <p>Apple ноутбуктары, M1/M2 чиптөр, премиум сапат</p>
+                    <div class="category-count">75 моделдер</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FILTERS -->
+    <section class="section">
+        <div class="container">
+            <div class="filters">
+                <h3 class="mb-20"><i class="fas fa-filter"></i> ИЗДӨӨ ФИЛЬТРЛЕРИ</h3>
+                
+                <div class="filter-group">
+                    <div class="filter-title"><i class="fas fa-tags"></i> БАА ДИАПАЗОНУ</div>
+                    <div class="filter-options">
+                        <button class="filter-btn active">БААРЫ</button>
+                        <button class="filter-btn">20,000 сомго чейин</button>
+                        <button class="filter-btn">20-40 миң сом</button>
+                        <button class="filter-btn">40-60 миң сом</button>
+                        <button class="filter-btn">60+ миң сом</button>
+                    </div>
+                </div>
+                
+                <div class="filter-group">
+                    <div class="filter-title"><i class="fas fa-laptop"></i> БРЕНДДЕР</div>
+                    <div class="filter-options">
+                        <button class="filter-btn">Apple</button>
+                        <button class="filter-btn active">Asus</button>
+                        <button class="filter-btn">Lenovo</button>
+                        <button class="filter-btn">HP</button>
+                        <button class="filter-btn">Dell</button>
+                        <button class="filter-btn">Acer</button>
+                        <button class="filter-btn">MSI</button>
+                    </div>
+                </div>
+                
+                <div class="filter-group">
+                    <div class="filter-title"><i class="fas fa-microchip"></i> ПРОЦЕССОР</div>
+                    <div class="filter-options">
+                        <button class="filter-btn">Intel Core i3</button>
+                        <button class="filter-btn">Intel Core i5</button>
+                        <button class="filter-btn active">Intel Core i7</button>
+                        <button class="filter-btn">Intel Core i9</button>
+                        <button class="filter-btn">AMD Ryzen 5</button>
+                        <button class="filter-btn">AMD Ryzen 7</button>
+                        <button class="filter-btn">Apple M1/M2</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section class="section" id="catalog">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">ЭҢ КӨП САТЫЛГАН НОУТБУКТАР</h2>
+                <p class="section-subtitle">Клиенттердин сүйүктүү тандоолору</p>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-badge">ЖАНЫ</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Asus ROG">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Asus ROG Strix G15 2024</h3>
+                        <div class="product-specs">
+                            <span class="spec">RTX 4060</span>
+                            <span class="spec">i7-13650HX</span>
+                            <span class="spec">16 ГБ RAM</span>
+                            <span class="spec">240 Гц</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-current">64,990 сом</span>
+                            <span class="price-old">74,990 сом</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" style="flex: 1;">
+                                <i class="fas fa-cart-plus"></i> САТЫП АЛУУ
+                            </button>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-badge">ЭН БЕКЕМ</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="MacBook Air">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">MacBook Air 15" M2</h3>
+                        <div class="product-specs">
+                            <span class="spec">Apple M2</span>
+                            <span class="spec">16 ГБ RAM</span>
+                            <span class="spec">512 ГБ SSD</span>
+                            <span class="spec">18 саат</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-current">129,990 сом</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" style="flex: 1;">
+                                <i class="fas fa-cart-plus"></i> САТЫП АЛУУ
+                            </button>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-badge">АРЗАН</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1542751110-97427bbecf20?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Lenovo IdeaPad">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Lenovo IdeaPad 3 Pro</h3>
+                        <div class="product-specs">
+                            <span class="spec">Ryzen 7 5700U</span>
+                            <span class="spec">8 ГБ RAM</span>
+                            <span class="spec">512 ГБ SSD</span>
+                            <span class="spec">15.6"</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-current">34,990 сом</span>
+                            <span class="price-old">42,990 сом</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" style="flex: 1;">
+                                <i class="fas fa-cart-plus"></i> САТЫП АЛУУ
+                            </button>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-badge">ЫНГАЙЛУУ</div>
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1530893609608-727a05c4013d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="HP Pavilion">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">HP Pavilion 15 Touch</h3>
+                        <div class="product-specs">
+                            <span class="spec">i5-1135G7</span>
+                            <span class="spec">12 ГБ RAM</span>
+                            <span class="spec">1 ТБ HDD+256 SSD</span>
+                            <span class="spec">Touchscreen</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-current">42,500 сом</span>
+                            <span class="price-old">49,990 сом</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" style="flex: 1;">
+                                <i class="fas fa-cart-plus"></i> САТЫП АЛУУ
+                            </button>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-40">
+                <button class="btn btn-primary" style="padding: 15px 40px; font-size: 16px;">
+                    <i class="fas fa-laptop"></i> БАРДЫК НОУТБУКТАРДЫ КӨРҮҮ (1,250+)
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPARISON -->
+    <section class="comparison">
+        <div class="container">
+            <div class="comparison-content">
+                <h2>ЭКИ НОУТБУКТУ САЛЫШТЫРЫП КӨРҮҮ</h2>
+                <p style="font-size: 18px; margin-bottom: 30px; opacity: 0.9; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Кайсы ноутбук сизге ылайык экенин билиш үчүн, эки модельди салыштырыңыз
+                </p>
+                <button class="btn btn-primary" style="padding: 15px 40px; font-size: 16px;">
+                    <i class="fas fa-balance-scale"></i> САЛЫШТЫРУУНУ БАШТОО
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">КЛИЕНТТЕР СЫН-ПИКИРЛЕРИ</h2>
+                <p class="section-subtitle">Биздин кардарлар "БАУРЖАН" жөнүндө эмне деп айтышат</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "БАУРЖАН дүкөнүнөн студенттик ноутбук сатып алдым. 
+                        Баасы рынокко салыштырмалуу эң арзан, жеткирүү 2 күндө келди. 
+                        Кепилдик дагы беришти. Супер кызмат!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">А</div>
+                        <div>
+                            <div style="font-weight: 700;">Айгерим Садыкова</div>
+                            <div style="color: var(--gray);">Студент, БГУ</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Оюн ноутбугун издөөдө бул дүкөн көп жардам берди. 
+                        Консультанттар адис, техникалык мүнөздөмөлөрү толук, 
+                        баалары рынокко салыштырмалуу төмөн. Келечекте да алгам!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">Б</div>
+                        <div>
+                            <div style="font-weight: 700;">Бектур Исаков</div>
+                            <div style="color: var(--gray);">Геймер, Бишкек</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "MacBook сатып алууну ойлоп жаттым, бирок салыштыруу бөлүмү 
+                        арзаныраак варианттарды көрсөттү. Акыры Lenovo алдым, 
+                        абдан ыраазымын. 6 ай болду, иштей берээри жатат."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">Д</div>
+                        <div>
+                            <div style="font-weight: 700;">Динара Калыкова</div>
+                            <div style="color: var(--gray);">Дизайнер, Ош</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer" id="about">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo">
+                        <div class="footer-logo-badge">Б</div>
+                        <div class="footer-logo-text">БАУРЖАН <span>НОУТБУКТАР</span></div>
+                    </a>
+                    <p class="footer-description">
+                        Кыргызстандын эң ири ноутбук дүкөнү. Биз сизге 
+                        туура тандоо жасоого жардам беребиз. Сапат, ишеним, 
+                        жөнөкөй баа - бул биздин принциптер.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="footer-title">КАТАЛОГ</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Оюн ноутбуктары</a></li>
+                        <li><a href="#">Ишкердик ноутбуктар</a></li>
+                        <li><a href="#">Студенттер үчүн</a></li>
+                        <li><a href="#">MacBook</a></li>
+                        <li><a href="#">Колдонулган ноутбуктар</a></li>
+                        <li><a href="#">Акциядагы товарлар</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="footer-title">ЖАРДАМ</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Көп берилүүчү суроолор</a></li>
+                        <li><a href="#">Жеткирүү шарттары</a></li>
+                        <li><a href="#">Кепилдик кызматы</a></li>
+                        <li><a href="#">Төлөм ыкмалары</a></li>
+                        <li><a href="#">Консультация алуу</a></li>
+                        <li><a href="#">Кайтаруу жана алмашуу</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="footer-title">БАЙЛАНЫШ</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <div style="font-weight: 600;">Телефондор:</div>
+                                <div>+996 555 12-34-56</div>
+                                <div>+996 777 98-76-54</div>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <div style="font-weight: 600;">Email:</div>
+                                <div>info@baurzhan.kg</div>
+                                <div>sales@baurzhan.kg</div>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <div style="font-weight: 600;">Дарек:</div>
+                                <div>Бишкек ш., Чуй проспекти 125</div>
+                                <div>(Асанбай аянтынын жанында)</div>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <div style="font-weight: 600;">Иш сааттары:</div>
+                                <div>Дүйшөмбү-Жума: 9:00 - 20:00</div>
+                                <div>Ишемби-Жекшемби: 10:00 - 18:00</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2024 "БАУРЖАН" ноутбук дүкөнү. Бардык укуктар корголгон.</p>
+                <p style="margin-top: 10px; font-size: 13px;">
+                    Сайттагы баалар өзгөрүүсү мүмкүн. Кардар менен макулдашууда акыркы баа бекитилет.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Filter functionality
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                this.parentElement.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+                console.log('Filter selected:', this.textContent);
+            });
+        });
+        
+        // Add to cart functionality
+        document.querySelectorAll('.btn-primary').forEach(button => {
+            if (button.textContent.includes('САТЫП АЛУУ')) {
+                button.addEventListener('click', function() {
+                    const productTitle = this.closest('.product-card').querySelector('.product-title').textContent;
+                    const productPrice = this.closest('.product-card').querySelector('.price-current').textContent;
+                    
+                    alert(`${productTitle} себетке кошулду! Баасы: ${productPrice}`);
+                    
+                    // Update cart count
+                    const cartCount = document.querySelector('.cart-count');
+                    let count = parseInt(cartCount.textContent);
+                    cartCount.textContent = count + 1;
+                    
+                    // Animation
+                    this.innerHTML = '<i class="fas fa-check"></i> КОШУЛДУ';
+                    this.style.background = '#10b981';
+                    setTimeout(() => {
+                        this.innerHTML = '<i class="fas fa-cart-plus"></i> САТЫП АЛУУ';
+                        this.style.background = '';
+                    }, 2000);
+                });
+            }
+        });
+        
+        // Search functionality
+        document.querySelector('.btn-primary .fa-search').closest('button').addEventListener('click', function() {
+            const searchTerm = prompt('Ноутбук издөө (модель, бренд, спецификация):');
+            if (searchTerm) {
+                alert(`"${searchTerm}" боюнча издөө натыйжалары көрсөтүлөт...`);
+            }
+        });
+        
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId !== '#') {
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // Comparison button
+        document.querySelector('.comparison .btn-primary').addEventListener('click', function() {
+            alert('Салыштыруу бөлүмү ачылат. Эки ноутбук тандаңыз.');
+        });
+        
+        // Heart button functionality
+        document.querySelectorAll('.btn-secondary .fa-heart').forEach(heart => {
+            heart.closest('button').addEventListener('click', function() {
+                const isActive = this.classList.contains('active');
+                if(isActive) {
+                    this.classList.remove('active');
+                    this.innerHTML = '<i class="fas fa-heart"></i>';
+                    this.style.color = '';
+                    this.style.borderColor = '';
+                } else {
+                    this.classList.add('active');
+                    this.innerHTML = '<i class="fas fa-heart" style="color:#dc2626"></i>';
+                    this.style.color = '#dc2626';
+                    this.style.borderColor = '#dc2626';
+                    alert('Товар сүйүктүүлөргө кошулду!');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
